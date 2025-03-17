@@ -12,10 +12,10 @@ const Header = () => {
 
     const navItems = [
         { href: '/', label: 'Trang chủ' },
-        { href: '/services', label: 'Dịch vụ' },
-        { href: '/booking', label: 'Đặt lịch' },
+        { href: '/dich-vu', label: 'Dịch vụ' },
+        { href: '/dat-lich', label: 'Đặt lịch' },
         { href: '/feedback', label: 'Feedback' },
-        { href: '/contact', label: 'Liên hệ' },
+        { href: '/lien-he', label: 'Liên hệ' },
     ];
 
     return (
@@ -39,8 +39,8 @@ const Header = () => {
                             key={item.href}
                             href={item.href}
                             className={`hover:text-purple-500 transition ${pathname === item.href
-                                    ? 'text-purple-400 font-semibold underline'
-                                    : ''
+                                ? 'text-purple-400 font-semibold underline'
+                                : ''
                                 }`}
                         >
                             {item.label}
