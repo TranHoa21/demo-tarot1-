@@ -54,6 +54,8 @@ export default function ReviewSection() {
                                     width={64}
                                     height={64}
                                     className="rounded-full border-2 border-purple-400 shadow-md"
+                                    loading="lazy"
+
                                 />
                                 <p className="italic text-sm sm:text-base text-gray-300 leading-relaxed">
                                     {review.content}

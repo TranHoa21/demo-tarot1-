@@ -45,6 +45,8 @@ export default function About() {
                                 width={400}
                                 height={400}
                                 className="rounded-2xl shadow-2xl w-full"
+                                loading="lazy"
+
                             />
                         </div>
                     </motion.div>
