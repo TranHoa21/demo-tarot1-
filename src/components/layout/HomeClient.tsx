@@ -2,6 +2,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 // Dynamic import các section với ssr: false
 const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
@@ -11,11 +12,22 @@ const About = dynamic(() => import("@/components/sections/about"), { ssr: false 
 
 export default function HomeClient() {
     return (
-        <div>
-            <Hero />
-            <About />
-            <Services />
-            <Review />
-        </div>
+        <>
+            <Suspense fallback={<div>Loading Hero...</div>}>
+                <Hero />
+            </Suspense>
+
+            <Suspense fallback={<div>Loading About...</div>}>
+                <About />
+            </Suspense>
+
+            <Suspense fallback={<div>Loading Services...</div>}>
+                <Services />
+            </Suspense>
+
+            <Suspense fallback={<div>Loading Review...</div>}>
+                <Review />
+            </Suspense>
+        </>
     );
 }

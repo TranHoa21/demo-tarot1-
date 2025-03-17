@@ -1,6 +1,7 @@
 // components/sections/ReviewSection.tsx
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const reviews = [
     {
@@ -48,10 +49,12 @@ export default function ReviewSection() {
                             viewport={{ once: true }}
                         >
                             <div className="flex flex-col items-center text-center space-y-4">
-                                <img
+                                <Image
                                     src={review.avatar}
                                     alt={review.name}
-                                    className="w-16 h-16 rounded-full border-2 border-purple-400 shadow-md"
+                                    width={64}
+                                    height={64}
+                                    className="rounded-full border-2 border-purple-400 shadow-md"
                                 />
                                 <p className="italic text-gray-300 leading-relaxed">{review.content}</p>
                                 <h4 className="text-purple-400 font-semibold">{review.name}</h4>

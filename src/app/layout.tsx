@@ -27,6 +27,10 @@ export default function RootLayout({
   return (
 
     <html lang="en">
+      <head>
+        {/* ✅ Preload ảnh nền background để cải thiện LCP */}
+        <link rel="preload" as="image" href="/image/6512217-_1_.webp" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
