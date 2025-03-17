@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { tsParticles } from "tsparticles-engine";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import { loadSlim } from "tsparticles-slim";
 declare global {
     interface Window {
         tsParticles: typeof tsParticles;
@@ -12,16 +12,13 @@ declare global {
 
 export default function Hero() {
     useEffect(() => {
-        const script = document.createElement("script");
-        script.src =
-            "https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js";
-        script.async = true;
-        script.onload = () => {
-            window.tsParticles.load("tsparticles", {
+        // load cấu hình "nhẹ" để giảm gánh nặng main-thread
+        loadSlim(tsParticles).then(() => {
+            tsParticles.load("tsparticles", {
                 fullScreen: false,
                 background: { color: "transparent" },
                 particles: {
-                    number: { value: 200 },
+                    number: { value: 80 }, // giảm từ 200 → 80
                     color: { value: ["#ffffff", "#f0abfc", "#a78bfa", "#e879f9"] },
                     shape: { type: "circle" },
                     size: { value: { min: 1.5, max: 4.5 }, random: true },
@@ -32,21 +29,21 @@ export default function Hero() {
                         outModes: { default: "bounce" },
                     },
                     opacity: {
-                        value: 0.9,
+                        value: 0.8,
                         random: true,
                         animation: {
                             enable: true,
-                            speed: 0.6,
-                            minimumValue: 0.3,
+                            speed: 0.5,
+                            minimumValue: 0.2,
                             sync: false,
                         },
                     },
                     links: {
                         enable: true,
-                        distance: 120,
+                        distance: 100,
                         color: "#e9d5ff",
-                        opacity: 0.6,
-                        width: 1.2,
+                        opacity: 0.4,
+                        width: 1,
                     },
                 },
                 interactivity: {
@@ -56,14 +53,12 @@ export default function Hero() {
                         resize: true,
                     },
                     modes: {
-                        repulse: { distance: 140, duration: 0.6 },
+                        repulse: { distance: 120, duration: 0.6 },
                         push: { quantity: 4 },
                     },
                 },
             });
-
-        };
-        document.body.appendChild(script);
+        });
     }, []);
 
     return (
