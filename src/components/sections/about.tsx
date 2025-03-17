@@ -1,6 +1,7 @@
-// components/Hero.tsx
+
 "use client"
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     return (
@@ -37,12 +38,13 @@ export default function About() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <img
+                        <Image
                             src="/image/1c0ddced-b0ea-4983-888d-445c39c01731.webp"
                             alt="Pha mặt trăng"
-                            className="w-full max-w-md rounded-2xl shadow-2xl floating-image "
+                            width={400}
+                            height={400}
+                            className="w-full max-w-md rounded-2xl shadow-2xl floating-image"
                         />
-
                     </motion.div>
 
                 </div>

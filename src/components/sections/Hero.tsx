@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { tsParticles } from "tsparticles-engine";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 declare global {
     interface Window {
@@ -108,10 +109,12 @@ export default function Hero() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <img
+                        <Image
                             src="/image/3fbf8c25-f386-455f-84fb-5e9438d7ac65-_3__optimized-_1_.webp"
                             alt="Pha mặt trăng"
-                            className="w-full max-w-md rounded-2xl shadow-2xl floating-image "
+                            width={400}
+                            height={400}
+                            className="w-full max-w-md rounded-2xl shadow-2xl floating-image"
                         />
                     </motion.div>
 
@@ -191,36 +194,37 @@ export default function Hero() {
                     box-shadow: 0 0 40px rgba(244, 114, 182, 0.9);
                     transform: scale(1.07);
                 }
-                      @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
 
-  @keyframes spinSlow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+                @keyframes float {
+                    0% {
+                        transform: translateY(0px);
+                    }
+                    50% {
+                        transform: translateY(-10px);
+                    }
+                    100% {
+                        transform: translateY(0px);
+                    }
+                }
 
-  .floating-image {
-    animation: float 4s ease-in-out infinite;
-    will-change: transform;
-    transition: transform 0.3s ease-in-out;
-  }
+                @keyframes spinSlow {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
 
-  .floating-image:hover {
-    animation: float 4s ease-in-out infinite, spinSlow 20s linear infinite;
-  }
+                .floating-image {
+                    animation: float 4s ease-in-out infinite;
+                    will-change: transform;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .floating-image:hover {
+                    animation: float 4s ease-in-out infinite, spinSlow 20s linear infinite;
+                }
             `}</style>
         </>
     );
